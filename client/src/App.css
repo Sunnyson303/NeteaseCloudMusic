@@ -30,6 +30,46 @@
   -ms-flex-direction: row;
       flex-direction: row;
 }
+.flex1 {
+  -ms-flex: 1;
+      flex: 1;
+}
+.flex2 {
+  -ms-flex: 2;
+      flex: 2;
+}
+.flex3 {
+  -ms-flex: 3;
+      flex: 3;
+}
+.flex4 {
+  -ms-flex: 4;
+      flex: 4;
+}
+.flex5 {
+  -ms-flex: 5;
+      flex: 5;
+}
+.flex6 {
+  -ms-flex: 6;
+      flex: 6;
+}
+.flex7 {
+  -ms-flex: 7;
+      flex: 7;
+}
+.flex8 {
+  -ms-flex: 8;
+      flex: 8;
+}
+.flex9 {
+  -ms-flex: 9;
+      flex: 9;
+}
+.flex10 {
+  -ms-flex: 10;
+      flex: 10;
+}
 #app {
   padding-bottom: 56px;
 }

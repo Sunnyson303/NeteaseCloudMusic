@@ -37,7 +37,7 @@ class PlayBar extends Component {
         </div>
         <div className="volume">
           <i className="material-icons">skip_next</i>
-          <Slider defaultValue={0.1} style={{width: '70%'}}/>
+          <Slider defaultValue={0.1} style={{width: '60%'}}/>
         </div>
       </div>
     );
