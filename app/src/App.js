@@ -1,21 +1,49 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import {withStyles} from 'material-ui/styles'
+import AppBar from 'material-ui/AppBar'
+import Toolbar from 'material-ui/Toolbar'
+import Button from 'material-ui/Button'
+import IconButton from 'material-ui/IconButton'
+import MenuIcon from 'material-ui-icons/Menu'
+import Typography from 'material-ui/Typography'
+import Grid from 'material-ui/Grid'
+import SideBar from './Components/SideBar'
+import Main from './Components/Main'
+import Header from './Components/Header'
+import PlayBar from './Components/PlayBar'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+import './App.css'
+
+const styles = {
+  app: {
+
+  },
+  toolbar: {
+    width: '100%'
+  },
+  flex: {
+    flex: 1
   }
 }
 
-export default App;
+function App(props) {
+  const classes = props.classes
+  return (
+    <Grid container className="classes.app">
+      <Header></Header>
+      <Grid container>
+        <Grid item xs={4}>
+          <SideBar></SideBar>
+        </Grid> 
+        <Grid item xs={8}>
+          <Main></Main>  
+        </Grid> 
+      </Grid>
+      <PlayBar></PlayBar>
+    </Grid>
+  )
+}
+
+export default withStyles(styles)(App)
+
