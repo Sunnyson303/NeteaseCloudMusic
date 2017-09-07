@@ -26,6 +26,7 @@ const styles = {
   }
 }
 
+@withStyles(styles)
 class Header extends Component {
   state = {
     name: 'test'
@@ -56,4 +57,4 @@ class Header extends Component {
   }
 }
 
-export default withStyles(styles)(Header)
+export default Header

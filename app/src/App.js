@@ -13,7 +13,7 @@ import Main from './Components/Main'
 import Header from './Components/Header'
 import PlayBar from './Components/PlayBar'
 
-import './App.css'
+import './app.css'
 
 const styles = {
   app: {
