@@ -10,6 +10,8 @@ import {withStyles} from 'material-ui/styles'
 import Grid from 'material-ui/Grid'
 import Autosuggest from 'react-autosuggest';
 import TextField from 'material-ui/TextField';
+import Icon from 'material-ui/Icon';
+import DeleteIcon from 'material-ui-icons/Delete';
 
 const styles = {
   colorPrimary: {
@@ -22,31 +24,40 @@ const styles = {
     flex: 1
   },
   searchbar: {
-    flex: 3
+    flex: 5,
+    display: 'flex'
+  },
+  flip: {
+    display: 'inline-block'
   }
 }
 
 @withStyles(styles)
 class Header extends Component {
   state = {
-    name: 'test'
+    kw: ''
   }
   render() {
     const classes = this.props.classes
     return (
-      <AppBar position="fixed" classes={classes.colorPrimary}>
+      <AppBar position="fixed" className={classes.colorPrimary}>
         <Toolbar disableGutters className={classes.toolbar}>
           <IconButton color="contrast" aria-label="Menu">
-            <MenuIcon />
+          <MenuIcon />
           </IconButton>
-          <Typography type="title" color="inherit" className={classes.flex}>
+            <Typography type="title" color="inherit" className={classes.flex}>
             网易云音乐
           </Typography>
           <div className={classes.searchbar}>
+            <div className={classes.flip}>
+              <i className="material-icons">keyboard_arrow_left</i>
+              <i className="material-icons">keyboard_arrow_right</i>
+            </div>
             <TextField
               id="name"
-              value={this.state.name}
-              onChange={event => this.setState({ name: event.target.value })}
+              value={this.state.kw}
+              onChange={event => this.setState({ kw: event.target.value })}
+              placeholder="搜索音乐，歌手 ，歌词，用户"
               margin="normal"
             />
           </div>
