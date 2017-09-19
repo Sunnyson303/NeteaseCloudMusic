@@ -13,8 +13,6 @@ import Main from './Components/Main'
 import Header from './Components/Header'
 import PlayBar from './Components/PlayBar'
 
-import './app.css'
-
 const styles = {
   app: {
 
@@ -33,10 +31,10 @@ function App(props) {
     <Grid container className="classes.app">
       <Header></Header>
       <Grid container>
-        <Grid item xs={4}>
+        <Grid item xs={2}>
           <SideBar></SideBar>
         </Grid> 
-        <Grid item xs={8}>
+        <Grid item xs={10}>
           <Main></Main>  
         </Grid> 
       </Grid>
