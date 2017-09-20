@@ -20,7 +20,7 @@ class Header extends Component {
   render() {
     const classes = this.props.classes
     return (
-      <AppBar position="static" className="header">
+      <AppBar className="c-header">
         <Toolbar>
           <Grid container className="header-container">
             <Grid item xs={2} className="header-left">

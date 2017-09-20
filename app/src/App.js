@@ -13,22 +13,10 @@ import Main from './Components/Main'
 import Header from './Components/Header'
 import PlayBar from './Components/PlayBar'
 
-const styles = {
-  app: {
-
-  },
-  toolbar: {
-    width: '100%'
-  },
-  flex: {
-    flex: 1
-  }
-}
-
 function App(props) {
   const classes = props.classes
   return (
-    <Grid container className="classes.app">
+    <Grid container>
       <Header></Header>
       <Grid container>
         <Grid item xs={2}>
@@ -43,5 +31,5 @@ function App(props) {
   )
 }
 
-export default withStyles(styles)(App)
+export default App
 

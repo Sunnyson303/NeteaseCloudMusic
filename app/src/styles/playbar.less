@@ -1,0 +1,38 @@
+@import "./lib.less";
+
+.c-playbar {
+  bottom: 0;
+  top: auto !important;
+  height: 64px;
+  .grey-bg;
+  .play-operations {
+    .base-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .progress-operations {
+    align-items: center;
+    .progress-time {
+      color: #999;
+    }
+    .progress-volume {
+      color: #666;
+      display: flex;
+      align-items: center;
+      .volume-linear {
+        width: 100%;
+      }
+    }
+    .repeat-operations {
+      color: #666;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .queue-music-wrap {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
