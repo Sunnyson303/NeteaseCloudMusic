@@ -13,9 +13,12 @@ import Main from './Components/Main'
 import Header from './Components/Header'
 import PlayBar from './Components/PlayBar'
 
+import {BrowserRouter as Router} from 'react-router-dom'
+
 function App(props) {
   const classes = props.classes
   return (
+    <Router>
     <Grid container>
       <Header></Header>
       <Grid container>
@@ -28,6 +31,7 @@ function App(props) {
       </Grid>
       <PlayBar></PlayBar>
     </Grid>
+    </Router>
   )
 }
 

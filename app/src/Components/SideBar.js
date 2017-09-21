@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import {
+  BrowserRouter as Router,
+  Link
+} from 'react-router-dom'
+
+
 import {List, ListItem, ListItemIcon, ListItemText, ListSubheader, Avatar} from 'material-ui';
 import {QueueMusic, MusicNote, MusicVideo, SupervisorAccount, Share, Star} from 'material-ui-icons'
 
@@ -15,12 +21,14 @@ export default class SideBar extends Component {
     return (
       <div className="c-sidebar">
         <List subheader={<ListSubheader>推荐</ListSubheader>}>
+            <Link to={`/Dashboard/Recommend`}>
           <ListItem button>
             <ListItemIcon>
               <MusicNote />
             </ListItemIcon>
-            <ListItemText inset primary="发现音乐" />
+              <ListItemText inset primary="发现音乐" />
           </ListItem>
+            </Link>
           <ListItem button>
             <ListItemIcon>
               <MusicVideo />
@@ -88,9 +96,9 @@ export default class SideBar extends Component {
         </List>
         <List subheader={<ListSubheader>收藏的歌单</ListSubheader>}>
           {
-            ['生命不息，抖腿不止', '震撼心灵的史诗音乐'].map( item => {
+            ['生命不息，抖腿不止', '震撼心灵的史诗音乐'].map((item, index) => {
               return (
-                <ListItem button>
+                <ListItem button key={index}>
                   <ListItemIcon>
                     <QueueMusic />
                   </ListItemIcon>
