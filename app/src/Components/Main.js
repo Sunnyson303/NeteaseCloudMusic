@@ -11,7 +11,7 @@ export default class Main extends Component {
 
   render() {
     return (
-      <div className="c-main">
+      <div className="c-main height-100 scroll-y">
         <Route path={'/Dashboard'} component={Dashboard}/>
       </div>
     )

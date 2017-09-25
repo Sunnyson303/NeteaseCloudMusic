@@ -4,8 +4,19 @@
 @import "./sidebar.less";
 @import "./playbar.less";
 
+html, body{
+  height: 100%;
+  overflow-y: hidden;
+}
 #root {
+  height: ~'calc(100% - 128px)';
   padding: 80px 0;
+}
+.c-header, .c-playbar {
+  z-index: 11111 !important;
+}
+.c-play-detail-modal-wrap {
+  height: ~'calc(100% - 128px)';
 }
 
 .page-dashboard {
@@ -29,6 +40,131 @@
     .card-media {
       width: 200px;
       height: 200px;
+    }
+  }
+  .personalized-recommend-wrap {
+    margin-top: 30px;
+    .headline {
+      span {
+        font-size: 14px;
+        color: #666;
+        margin-left: 15px;
+      }
+    }
+    .personalized-recommend-grid {
+      padding-top: 10px;
+      .personalized-recommend-card {
+        display: flex;
+        .personalized-recommend-card-media {
+          height: 150px;
+          width: 150px;
+        }
+      }
+    }
+  }
+  .new-song-courier-wrap{
+    margin-top: 30px;
+    .headline {
+      display: flex;
+      justify-content: space-between;
+      .more {
+        font-size: 14px;
+      }
+    }
+    .song-list-item {
+      display: flex;
+      justify-content: space-between;
+      .keyboard-arrow-right {
+        display: none;
+      }
+      &:hover {
+        .keyboard-arrow-right {
+          display: inline-block;
+        }
+      }
+      .title-wrap {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.c-play-detail-modal-wrap {
+  height: ~'calc(100% - 128px) !important';
+  padding: 64px 0;
+  overflow-y: scroll;
+  .c-play-detail-modal {
+    background: #fff;
+    .left {
+      .song-avatar {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+      }
+      .options {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .right {
+      padding-right: 100px;
+      .fullscreen-exit {
+        position: fixed;
+        right: 30px;
+        top: 110px;
+      }
+      .info {
+        padding: 20px 0 10px 0;
+        label {
+          margin-right: 10px;
+          margin-left: 10px;
+          &.album {
+            margin-left: 0;
+          }
+        }
+        
+      }
+      .lyric {
+        height: 400px;
+        margin-right: 200px;
+        overflow-y: scroll;
+        padding: 30px 0 0 0;
+      }
+    }
+    .bottom {
+      .comments {
+        padding: 0 100px;
+        .comment-counts {
+          font-size: 14px;
+          margin-left: 15px;
+        }
+        .submit-area {
+          padding: 10px 0 20px;
+          .content {
+            width: 100%;
+          }
+          .comment-submit {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+        .comment-card {
+          .avator {
+            width: 50px;
+            height: 50px;
+          }
+        }
+        .brilliant, .newest-comments {
+          margin: 30px 0;
+          .subheading {
+            padding-bottom: 10px;
+          }
+        }
+      }
+      .relatives {
+        padding-right: 100px;
+      }
     }
   }
 }

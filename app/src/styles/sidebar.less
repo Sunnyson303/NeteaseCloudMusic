@@ -1,13 +1,30 @@
 .c-sidebar {
+  height: ~'calc(100% - 64px)';
   .grey-bg;
   .playing-info {
+    padding: 10px 0;
+    background-color: #f6f6f6;
     display: flex;
     justify-content: space-between;
     .left {
       display: flex;
       align-items: center;
+      position: relative;
+      padding-left: 10px;
       .avatar {
         margin-right:10px;
+        height: 60px;
+        width: 60px;
+        &:hover ~ .fullscreen {
+          display: block;
+        }
+      }
+      .fullscreen {
+        position: absolute;
+        left: 30px;
+        top: 16px;
+        color: #fff;
+        display: none;
       }
     }
     .album-info {
