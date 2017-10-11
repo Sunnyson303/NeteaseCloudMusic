@@ -10,7 +10,7 @@ import {
 import {Grid, List, ListItem, ListItemIcon, ListItemText, ListSubheader, Avatar, Divider, Dialog} from 'material-ui';
 import {QueueMusic, MusicNote, MusicVideo, SupervisorAccount, Share, Star, Fullscreen} from 'material-ui-icons'
 
-import {openPlayDetailModal} from '../actions'
+import {openPlayDetailModal, fetchSong} from '../actions'
 
 const menu = {
   savedList: {
@@ -19,6 +19,13 @@ const menu = {
   }
 }
 class SideBar extends Component {
+  
+  componentDidMount() {
+    fetch(`/song/detail?ids=347230`)
+    .then(res => res.json())
+    .then(json => {})
+  }
+  
   render() {
     const {openPlayDetailModal} = this.props
     return (
@@ -149,6 +156,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => {
   return {
     openPlayDetailModal: e => {
+      // fetchSong(347230)
       dispatch(openPlayDetailModal())
     }
   }

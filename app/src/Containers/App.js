@@ -17,7 +17,6 @@ class AppContianer extends Component {
   
   render() {
     const {status, closePlayDetailModal} = this.props
-    console.log(this.props);
     return (
       <Router>
         <Grid container className="height-100">

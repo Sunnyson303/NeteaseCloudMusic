@@ -102,8 +102,9 @@ const likesPersons = [
   }
 ]
 class PlayDetailModal extends Component {
+  
   render() {
-    const {closePlayDetailModal} = this.props
+    const {closePlayDetailModal, songDetail} = this.props
     return (
       <div className="c-play-detail-modal">
         <Grid container>
@@ -262,7 +263,6 @@ const mapStateToProps = (state, ownProps) => (state)
 const mapDispatchToProps = dispatch => {
   return {
     closePlayDetailModal: e => {
-      console.log(110);
       dispatch(closePlayDetailModal())
     }
   }
