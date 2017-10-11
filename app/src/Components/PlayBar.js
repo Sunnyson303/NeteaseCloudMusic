@@ -25,7 +25,7 @@ import {
 } from 'material-ui-icons'
 
 import { connect } from 'react-redux'
-
+import {togglePlayBtn} from '../actions' 
 
 class PlayBar extends Component {
   static propTypes = {
@@ -40,6 +40,9 @@ class PlayBar extends Component {
   }
 
   render() {
+    console.log( this.props);
+    const {status, togglePlayBtn} = this.props
+    var playBtn = status.playBtn ? <span onClick={togglePlayBtn.bind(this, false)}>播放</span> : <span onClick={togglePlayBtn.bind(this, true)}>暂停</span>
     return (
       <AppBar className="c-playbar">
         <Toolbar>
@@ -47,6 +50,7 @@ class PlayBar extends Component {
             <Grid item xs={2} className="play-operations">
               <SkipPrevious color="error"/>
               <PlayArrow color="error" />
+              {playBtn}
               <SkipNext color="error" />
             </Grid>
             <Grid item xs={10}>
@@ -78,12 +82,14 @@ class PlayBar extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  playBtn: state.status.playBtn
-})
+const mapStateToProps = (state, ownProps) => state
 
-const mapDispatchToProps = {
-  
+const mapDispatchToProps = dispatch => {
+  return {
+    togglePlayBtn: e => {
+      dispatch(togglePlayBtn(e))
+    },
+  }
 }
 
 

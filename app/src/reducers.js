@@ -25,8 +25,7 @@ export const status = (state = {
           fetchLoading: action.payload
         }
       }
-    case 'PLAY_BTN':
-    case 'PAUSE_BTN':
+    case 'TOGGLE_PLAY_BTN':
       return {
         state,
         ...{

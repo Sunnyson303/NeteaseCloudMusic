@@ -10,16 +10,14 @@ export const fetchLoading = (payload) => ({
   payload
 })
 
-export const playBtn = () => ({
-  type: 'PLAY_BTN',
-})
-export const pauseBtn = () => ({
-  type: 'PAUSE_BTN',
+export const togglePlayBtn = payload => ({
+  type: 'TOGGLE_PLAY_BTN',
+  payload
 })
 
 export const playSong = id => {
   return dispatch => {
-    dispatch(playBtn())
+    dispatch(togglePlayBtn(true))
     dispatch(fetchLoading(true))
     fetchSong(id).then(json => {
       dispatch(fetchLoading(false))
