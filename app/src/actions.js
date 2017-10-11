@@ -1,27 +1,34 @@
-import {index as songDetail} from './Epics/Song/detail'
+import {
+  index as songDetail
+} from './Epics/Song/detail'
 
 export const OPEN_PLAY_DETAIL_MODAL = 'OPEN_PLAY_DETAIL_MODAL'
 export const CLOSE_PLAY_DETAIL_MODAL = 'CLOSE_PLAY_DETAIL_MODAL'
 
-function requestSong() {
-  return {
-    type: 'REQUEST_SONG'
-  }
-}
+export const fetchLoading = (payload) => ({
+  type: 'FETCH_LOADING',
+  payload
+})
 
-function receviceSong(song) {
-  return {
-    type: 'RECEIVE_SONG',
-    song,
+export const playBtn = () => ({
+  type: 'PLAY_BTN',
+})
+export const pauseBtn = () => ({
+  type: 'PAUSE_BTN',
+})
+
+export const playSong = id => {
+  return dispatch => {
+    dispatch(playBtn())
+    dispatch(fetchLoading(true))
+    fetchSong(id).then(json => {
+      dispatch(fetchLoading(false))
+    })
   }
 }
 
 export function fetchSong(id) {
-  return dispatch => {
-    dispatch(requestSong(id))
-    return fetch(`/song/detail?ids=${id}`)
-    .then(res => res.json()).then(json => dispatch(receviceSong(json)))
-  }
+  return fetch(`/song/detail?ids=${id}`).then(res => res.json())
 }
 
 export function openPlayDetailModal() {

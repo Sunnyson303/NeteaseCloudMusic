@@ -11,9 +11,14 @@ import Slide from 'material-ui/transitions/Slide';
 
 import {BrowserRouter as Router} from 'react-router-dom'
 
-import {openPlayDetailModal, closePlayDetailModal} from '../actions'
+import {openPlayDetailModal, closePlayDetailModal, playSong} from '../actions'
 
 class AppContianer extends Component {
+  
+  componentDidMount() {
+    this.props.playSong()
+  }
+  
   
   render() {
     const {status, closePlayDetailModal} = this.props
@@ -52,6 +57,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     closePlayDetailModal: e => {
       dispatch(closePlayDetailModal())
+    },
+    playSong: e=> {
+      dispatch(playSong(347230))
     }
   }
 }

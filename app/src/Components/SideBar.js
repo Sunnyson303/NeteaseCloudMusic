@@ -21,9 +21,6 @@ const menu = {
 class SideBar extends Component {
   
   componentDidMount() {
-    fetch(`/song/detail?ids=347230`)
-    .then(res => res.json())
-    .then(json => {})
   }
   
   render() {

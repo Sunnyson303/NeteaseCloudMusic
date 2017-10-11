@@ -24,17 +24,18 @@ import {
   
 } from 'material-ui-icons'
 
-export default class PlayBar extends Component {
+import { connect } from 'react-redux'
+
+
+class PlayBar extends Component {
   static propTypes = {
 
   }
-  constructor() {
-    super()
-    this.state = {
-      status: {
-        progress: 49,
-        volume: 60
-      }
+
+  state = {
+    status: {
+      progress: 49,
+      volume: 60
     }
   }
 
@@ -76,3 +77,15 @@ export default class PlayBar extends Component {
     )
   }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  playBtn: state.status.playBtn
+})
+
+const mapDispatchToProps = {
+  
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayBar)

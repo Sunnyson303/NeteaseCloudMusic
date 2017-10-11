@@ -8,7 +8,9 @@ import {
 } from './actions'
 
 export const status = (state = {
-  playDetailModal: false
+  playDetailModal: false,
+  fetchLoading: false,
+  playBtn: false
 }, action) => {
   switch (action.type) {
     case CLOSE_PLAY_DETAIL_MODAL:
@@ -16,6 +18,21 @@ export const status = (state = {
       return Object.assign({}, state, {
         playDetailModal: action.value
       })
+    case 'FETCH_LOADING':
+      return {
+        state,
+        ...{
+          fetchLoading: action.payload
+        }
+      }
+    case 'PLAY_BTN':
+    case 'PAUSE_BTN':
+      return {
+        state,
+        ...{
+          playBtn: action.payload
+        }
+      }
     default:
       return state
   }
