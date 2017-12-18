@@ -29,7 +29,7 @@ export default class DiscovrMusic extends Component {
                 path: 'newest'
               }
             ].map(item => (<MenuItem key={item.name}>
-              <Link to={`${match.url/item.path}`}>{item.name}</Link>
+              <Link to={`${match.url}/${item.path}`}>{item.name}</Link>
             </MenuItem>))
           }
         </Menu>
