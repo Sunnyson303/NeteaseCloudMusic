@@ -7,25 +7,25 @@ const navData = [
     children: [
       {
         path: 'discovr-music',
-        conponent: DiscovrMusic,
+        component: DiscovrMusic,
         name: '发现音乐',
         icon: 'music'
       },
       {
         path: 'profile-fm',
-        conponent: '',
+        component: '',
         name: '私人FM',
         icon: 'music'
       },
       {
         path: 'mv',
-        conponent: '',
+        component: '',
         name: 'MV',
         icon: 'music'
       },
       {
         path: 'friends',
-        conponent: '',
+        component: '',
         name: '朋友',
         icon: 'music'
       },
@@ -38,31 +38,31 @@ const navData = [
     children: [
       {
         path: 'itunes',
-        conponent: '',
+        component: '',
         name: 'iTunes音乐',
         icon: 'music'
       },
       {
         path: 'downloads',
-        conponent: '',
+        component: '',
         name: '下载的音乐',
         icon: 'music'
       },
       {
         path: 'my-singers',
-        conponent: '',
+        component: '',
         name: '我的歌手',
         icon: 'music'
       },
       {
         path: 'my-mv',
-        conponent: '',
+        component: '',
         name: '我的MV',
         icon: 'music'
       },
       {
         path: 'my-radio',
-        conponent: '',
+        component: '',
         name: '我的电台',
         icon: 'music'
       },
@@ -73,13 +73,13 @@ const navData = [
     children: [
       {
         path: 'stared-music',
-        conponent: '',
+        component: '',
         name: '我喜欢的音乐',
         icon: 'music'
       },
       {
         path: ':item',
-        conponent: '',
+        component: '',
         name: '我喜欢的音乐',
         icon: 'music'
       },

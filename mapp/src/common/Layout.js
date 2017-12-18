@@ -54,7 +54,7 @@ export default class App extends Component {
       <Header></Header>
       <Content>
         <Layout>
-          <Sider className="sider"  style={{ height: contentHeight }}>
+          <Sider className="sider" style={{ height: contentHeight }}>
             <Menu mode="inline" defaultOpenKeys={['0', '1', '2']}>
               {
                 navData.map((route, index) => (
@@ -74,13 +74,18 @@ export default class App extends Component {
             </Menu>
           </Sider>
           <Content style={{ minHeight: contentHeight }}>
-            content
-          {
+            {
               navData.map(route => (
-                <Route path={route.path} key={route.path} render={props => {
-                  return  route.children.map(sub => (
-                      <Route path={`/${route.path}/${sub.path}`} {...props} key={sub.path} component={sub.component || null}/>
-                    ))
+                <Route path={`/${route.path}`} key={route.path} render={props => {
+                  return (
+                    <div>
+                      {
+                        route.children.map(sub => (
+                          <Route path={`/${route.path}/${sub.path}`} key={sub.path} component={sub.component || null} />
+                        ))
+                      }
+                    </div>
+                  )
                 }
                 } />
               ))
