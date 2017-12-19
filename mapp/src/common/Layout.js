@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu} from 'antd'
 import { Link, Route } from 'react-router-dom'
 import './Layout.less'
 import { ContainerQuery } from 'react-container-query';
 import { debounce } from 'lodash'
 import navData from './nav'
 import PlayBar from './PlayBar'
+import RowHeader from './Header'
 
+import styles from './Layout.less'
 const MenuItem = Menu.Item
 const SubMenu = Menu.SubMenu
 const { Sider, Content, Footer, Header } = Layout
@@ -37,7 +39,7 @@ export default class App extends Component {
 
   }
   componentDidMount() {
-    window.addEventListener('resize', debounce(this.setContentHeight, 300))
+    window.addEventListener('resize', debounce(this.setContentHeight, 100))
     this.setContentHeight()
   }
   setContentHeight = () => {
@@ -51,10 +53,12 @@ export default class App extends Component {
   render() {
     const { contentHeight } = this.state
     const layout = (<Layout>
-      <Header></Header>
+      <Header className={styles.header}>
+      <RowHeader />
+      </Header>
       <Content>
         <Layout>
-          <Sider className="sider" style={{ height: contentHeight }}>
+          <Sider className={styles.sider} style={{ height: contentHeight }}>
             <Menu mode="inline" defaultOpenKeys={['0', '1', '2']}>
               {
                 navData.map((route, index) => (
@@ -73,7 +77,7 @@ export default class App extends Component {
               }
             </Menu>
           </Sider>
-          <Content style={{ minHeight: contentHeight }}>
+          <Content className={styles.content} style={{ height: contentHeight }}>
             {
               navData.map(route => (
                 <Route path={`/${route.path}`} key={route.path} render={props => {
