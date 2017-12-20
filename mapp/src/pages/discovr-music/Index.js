@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Menu, Carousel, Card, List, Button, Icon } from 'antd'
 import { Link } from 'react-router-dom'
-import {observer} from 'mobx-react'
+import {observer, inject} from 'mobx-react'
 import styles from './Index.less'
 
 const MenuItem = Menu.Item
@@ -10,6 +10,7 @@ const ListItemMeta = ListItem.Meta
 const { Meta } = Card
 const CardGrid = Card.Grid
 
+@inject('banners')
 @observer
 export default class DiscovrMusic extends Component {
   

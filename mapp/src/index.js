@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css'
 import App from './App'
 import Store from './models/app'
+import { Provider } from 'mobx-react'
 import registerServiceWorker from './registerServiceWorker';
 
 const store = new Store()

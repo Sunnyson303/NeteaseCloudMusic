@@ -2,7 +2,7 @@ import { observable, computed, action } from 'mobx'
 import {fetchBanners} from '../services/api'
 
 export default class Banner{
-  @observable bannerlist = [];
+  @observable banners = [];
   @action 
   fetchBanners() {
     fetchBanners().then(json => {
