@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Layout from './common/Layout'
+import {observer} from 'mobx-react'
 
+@observer
 class App extends Component {
+  
+  componentDidMount() {
+    // const {store} = this.props
+    // store.fetchBanners()
+    // console.log(store.Banner.fetchBanners());
+  }
+  
   render() {
     return (
       <Router>
