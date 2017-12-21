@@ -10,16 +10,17 @@ const ListItemMeta = ListItem.Meta
 const { Meta } = Card
 const CardGrid = Card.Grid
 
-@inject('banners')
+@inject('discovrMusicStore')
 @observer
 export default class DiscovrMusic extends Component {
   
   componentDidMount() {
-    console.log(this.props);
+    const { match ,discovrMusicStore} = this.props
+    console.log(discovrMusicStore.banners);
   }
   
   render() {
-    const { match } = this.props
+    const { match ,discovrMusicStore} = this.props
     const listData = [1, 2, 3, 4]
     var songList = []
     for (let i = 0; i < 20; i++) {
@@ -57,7 +58,9 @@ export default class DiscovrMusic extends Component {
         <Card>
           <Carousel autoplay className={styles.banenrList}>
             {
-              [1, 2, 3, 4].map(item => (<div key={item} style={{ background: '#00aaff', height: 100 }}></div>))
+              discovrMusicStore.banners.map(item => (
+                <img src={item.pic}/>
+              ))
             }
           </Carousel>
         </Card>
