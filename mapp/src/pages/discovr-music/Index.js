@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Menu, Carousel, Card, List, Button, Icon } from 'antd'
+import { Menu, Carousel, Card, List, Button, Icon, Row, Col } from 'antd'
 import { Link } from 'react-router-dom'
-import {observer, inject} from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import styles from './Index.less'
 
 const MenuItem = Menu.Item
@@ -13,14 +13,12 @@ const CardGrid = Card.Grid
 @inject('discovrMusicStore')
 @observer
 export default class DiscovrMusic extends Component {
-  
+
   componentDidMount() {
-    const { match ,discovrMusicStore} = this.props
-    console.log(discovrMusicStore.banners);
   }
-  
+
   render() {
-    const { match ,discovrMusicStore} = this.props
+    const { match, discovrMusicStore: store } = this.props
     const listData = [1, 2, 3, 4]
     var songList = []
     for (let i = 0; i < 20; i++) {
@@ -58,34 +56,52 @@ export default class DiscovrMusic extends Component {
         <Card>
           <Carousel autoplay className={styles.banenrList}>
             {
-              discovrMusicStore.banners.map(item => (
-                <img src={item.pic}/>
+              store.banners.map(item => (
+                <img src={item.pic} key={item.pic}/>
               ))
             }
           </Carousel>
         </Card>
         <Card title="热门精选" className={styles.hot}>
-          {
-            [1, 2, 3, 4, 5, 6, 7, 8].map(item => (
-              <CardGrid key={item} className={styles.hotItem}>
-                <Card
-                  className={styles.hotItemCard}
-                  cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                  <Meta title={`${item} title ...`} />
-                </Card>
-              </CardGrid>
-            ))
-          }
+          <Row gutter={24}>
+            {
+              store.songMenus.slice(0,4).map(item => (
+                <Col span={6} key={item.id}>
+                    <Card
+                    key={item.id}
+                      className={styles.hotItemCard}
+                      cover={<img alt="example" src={item.picUrl} />}
+                    >
+                      <Meta title={item.name} />
+                    </Card>
+                </Col>
+              ))
+            }
+          </Row>
+          <Row gutter={24}>
+            {
+              store.songMenus.slice(4,8).map(item => (
+                <Col span={6} key={item.id}>
+                    <Card
+                    key={item.id}
+                      className={styles.hotItemCard}
+                      cover={<img alt="example" src={item.picUrl} />}
+                    >
+                      <Meta title={item.name} />
+                    </Card>
+                </Col>
+              ))
+            }
+          </Row>
         </Card>
         <Card title="个性化推荐" className={styles.personality}>
           <List
             itemLayout="vertical"
             grid={{ gutter: 16, column: 2 }}
-            dataSource={listData}
+            dataSource={store.recommens}
             renderItem={item => (
-              <ListItem width={140} height={140} extra={<img src="http://p1.music.126.net/MzQ4LEgNhDBNHLo1Lbmbow==/5782331650592520.jpg?param=140y140" />}>
-                <ListItemMeta title={item} description={item} />
+              <ListItem width={140} height={140} extra={<img src={item.picUrl} width={200} />}>
+                <ListItemMeta title={item.name} description={item.copywriter} />
               </ListItem>)}
           >
           </List>
@@ -97,11 +113,11 @@ export default class DiscovrMusic extends Component {
           >
             <List
               size="small"
-              dataSource={songList}
+              dataSource={store.newSongs}
               renderItem={(item, index) => (
-                <ListItem>
-                  <ListItemMeta title={(<span>{index + 1} {item.title}</span>)} />
-                  <div>{item.single}</div>
+                <ListItem key={item.id}>
+                  <ListItemMeta title={(<span>{item.name}</span>)} />
+                  <div>{item.song.artists.map(i => i.name)}</div>
                 </ListItem>
               )}
             >
